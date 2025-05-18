@@ -30,9 +30,9 @@ jobs:
       - name: Build and run tests
         run: ./gradlew clean test
 
-      - name: Archive test results (optional)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results
-          path: build/test-results/test
+#      - name: Archive test results (optional)
+#        if: always()
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: test-results
+#          path: build/test-results/test
