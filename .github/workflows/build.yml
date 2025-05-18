@@ -12,6 +12,7 @@ on:
 
 jobs:
   build:
+    name: CI - Build and Test
     runs-on: ubuntu-latest
     if: always()
     steps:
