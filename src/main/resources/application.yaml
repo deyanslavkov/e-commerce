@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: myshop
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/myshop
+    username: myshop_user
+    password: mypassword
+    driver-class-name: org.postgresql.Driver
+    jpa:
+#      generate-ddl: true
+      hibernate:
+#        generate-ddl: true
+        ddl-auto: create  # Use 'none' or 'validate' for production
+#        hbm2ddl:
+#          auto: update
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+  sql:
+    init:
+      platform: postgres
+  jpa:
+    generate-ddl: true
