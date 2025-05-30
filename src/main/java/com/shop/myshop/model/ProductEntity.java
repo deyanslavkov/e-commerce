@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Builder
@@ -34,7 +35,7 @@ public class ProductEntity {
     private int quantity;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<CartEntity> cartItems;
+    private final List<CartEntity> cartItems = new ArrayList<>();
 
     @CreatedDate
     @Column(updatable = false)

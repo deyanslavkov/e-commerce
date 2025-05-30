@@ -7,6 +7,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Builder
@@ -14,6 +15,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "`user`")
 @EntityListeners(AuditingEntityListener.class)
@@ -27,10 +29,10 @@ public class UserEntity {
   private String username;
 
   @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-  private List<OrderEntity> orders;
+  private final List<OrderEntity> orders = new ArrayList<>();
 
   @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-  private List<CartEntity> cartItems;
+  private final List<CartEntity> cartItems = new ArrayList<>();
 
   @CreatedDate
   @Column(updatable = false)

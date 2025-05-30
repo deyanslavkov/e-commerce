@@ -8,12 +8,13 @@ import org.springframework.stereotype.Repository;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
   
   // select * from user where username = 'pesho'
-  UserEntity findByUsername(String username);
+  Optional<UserEntity> findByUsername(String username);
   
   UserEntity findUserByCreatedAtBefore(Instant createdAtBefore);
   
